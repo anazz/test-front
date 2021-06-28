@@ -9,16 +9,16 @@ const DoctorsAvailabilities = (props) => {
     const [availabilities, setAvailabilities] = useState([]);
 
     const API_AVAILABILITIES_URL = `https://tech-test.joovence.dev/api/availabilities?doctorId=${DOCTOR_ID}`;
-
-    useEffect(() => {
-        axios.get(API_AVAILABILITIES_URL)
-        .then((response) => {
+ 
+    (async () => {
+      try {
+            const response = await axios.get(API_AVAILABILITIES_URL)
             console.log(response);
-            // setAvailabilities(response.data);
-        }).catch((error) => {
+            setAvailabilities(response);
+      } catch (error) {
             console.log(error);
-        });   
-    }, [API_AVAILABILITIES_URL]);
+      }
+    })();
     
     return (
         <div>

@@ -19,7 +19,7 @@ const Doctors = (props) => {
         }).catch((error) => {
             console.log(error);
         });   
-    }, [API_DOCTORS_URL]);
+    }, [API_DOCTORS_URL]);      
 
     console.log(doctorsList);
 
